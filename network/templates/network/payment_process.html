@@ -1,0 +1,35 @@
+
+{% load static %}
+
+{% block payment_process %}
+    <div style="height:950px">
+        <div class="section1" id="success1" style="display:block;" >
+        <div class="gif-div">
+            <img src="{% static 'network/Images/spinner.gif' %}" style="width:100px;height:100px;position:relative;left:630px;top:100px;" alt="processing">
+        </div>
+        <div class="header-before" style="text-align:center;position:relative;top:-50px;font-weight:bold;">
+            Processing Payment...
+        </div>
+        <div class="below-header" style="text-align:center;position:relative;top:120px;font-weight:bold;">
+            Please wait while we are processing your payment.
+        </div>
+            </div>
+        <div class="section2" id="success2" style="display:none;">
+        <div class="gif-div">
+            <img src="{% static 'network/Images/done.gif' %}" style="width:100px;height:100px;position:relative;left:620px;top:140px;" alt="processing">
+        </div>
+        <div class="below-header" style="text-align:center;position:relative;top:160px;font-weight:bold;font-size:20px;">
+            Payment Successful!<br><br><br><a href="{% url 'index' %}">Return to Home</a>
+        </div>
+<script>setTimeout(() => {  const box = document.getElementById('success1');
+                            const box2 = document.getElementById('success2');
+
+  box.style.display = 'none';
+  box2.style.display = 'block';
+
+     }, 2000);
+</script>
+</div>
+    </div>
+
+{% endblock %}

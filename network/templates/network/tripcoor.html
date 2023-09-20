@@ -1,0 +1,29 @@
+{% extends 'network/index.html' %}
+
+{% load static %}
+
+{% block tripcoor %}
+<nav class="head heading">Trip Coordinators</nav>
+<div style="position:relative;left:30px;top:30px;height:750px;">
+<div style="height:250px;width:580px;border-radius:10px;background-color:#F7F7F7;padding:20px;">
+    <div style="width:330px;height:200px;">
+          <h3 class="mb-0" style="color:black;">Make my Trip</h3><br>
+          <p class="card-text mb-auto" style="text-align: justify;line-height:110%;">MakeMyTrip is one of the leading companies, providing great offers and a seamless online booking experience to many of its customers. The experience of booking your flight tickets, hotel stay, and holiday package through  website or mobile app can be done with no hassles at all.</p>
+          <a href="https://www.makemytrip.com/" style="color:red;text-decoration:none;">makemytrip.com</a>
+    </div>
+    <div style="height:250px;width:170px;border-radius:10px;position:relative;left:340px;top:-222px;">
+        <img src="{% static 'network/Images/mmt.png' %}" style="height:250px;width:220px;border-radius:10px;">
+    </div>
+</div><br>
+    <div style="height:250px;width:580px;border-radius:10px;background-color:#F7F7F7;padding:20px;">
+    <div style="width:330px;height:200px;">
+          <h3 class="mb-0" style="color:black;">Goibibo</h3><br>
+          <p class="card-text mb-auto" style="text-align: justify;line-height:110%;">Goibibo is India’s leading online travel booking brand providing range of choice for hotels, flights, trains, bus and cars for travelers. Our core value differentiator is the most trusted user experience, be it in terms of quickest search and booking, fastest payments, settlement or refund processes.</p>
+        <a href="https://www.goibibo.com/" style="color:black;text-decoration:none;"><span style="color:orange;">go</span><span style="color:blue;">ibibo</span>.com</a>
+    </div>
+    <div style="height:250px;width:170px;border-radius:10px;position:relative;left:340px;top:-222px;">
+        <img src="{% static 'network/Images/gbo.jpeg' %}" style="height:250px;width:220px;border-radius:10px;">
+    </div>
+</div>
+</div>
+{% endblock %}

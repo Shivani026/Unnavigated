@@ -1,0 +1,68 @@
+{% extends "network/layout2.html" %}
+
+{% load static %}
+
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block edit_profile %}
+{% block body %}
+    <div class="user-box" style="margin-top: 6vh;">
+        <div>
+            <center>
+                <img src="{% static 'network/Images/u.png' %}" height="45em" style="margin-bottom: 2vh;">
+                <h2>Edit Profile</h2><br>
+            </center>
+        </div>
+    
+        <form action="{% url 'updaterecord' myuser.id %}" method="post" id="edit-form" style="width: 100%;margin-bottom: 5vh;"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="form-row align-items-center">
+                    <div class="col-sm-6 my-1">
+                    <label>First name :</label>
+                    <input class="form-control inp fname"  type="text" name="firstname" value="{{ myuser.first_name }}" autocomplete="off" required>
+                    <span class="star small"></span>
+                </div><br>
+
+                <div class="col-sm-6 my-1">
+                    <label>Last name :</label>
+                    <input class="form-control inp lname" type="text" name="lastname" value="{{ myuser.last_name }}" autocomplete="off" required>
+                    <span class="star small"></span>
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+                <label>Username :</label>
+                <input class="form-control inp usrname" type="text" name="username" value="{{ myuser.username }}" autocomplete="off" required>
+                <span class="star small">{{message}}</span>
+            </div>
+            <div class="form-group">
+                <label>E-mail :</label>
+                <input class="form-control inp email" type="email" name="email" value="{{ myuser.email }}" autocomplete="off" required>
+                <span class="star small"></span>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" name="profile" class="form-control custom-file-input" value="{{ myuser.profile_pic }}" id="profile" accept="image/jpeg,image/png,image/webp,image/gif" data-focusable="true" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="profile"><span style="color: #6c757d;">Choose profile picture</span></label>
+                    <span class="star small"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" name="cover" class="form-control custom-file-input" value="{{ myuser.cover }}" id="cover" accept="image/jpeg,image/png,image/webp,image/gif" data-focusable="true" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="cover"><span style="color: #6c757d;">Choose cover picture</span></label>
+                    <span class="star small"></span>
+                </div>
+            </div>
+
+
+            <center>
+                <input class="btn btn-primary" type="submit" value="Edit" style="margin-top: 10px; width: 95%;">
+            </center>
+        </form>
+    </div>
+{% endblock %}
+{% endblock %}

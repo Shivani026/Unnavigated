@@ -1,0 +1,40 @@
+{% extends 'network/index.html' %}
+
+{% load static %}
+
+{% block subscribe %}
+{% if user.is_authenticated %}
+<nav class="head heading" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">Subscriptions</nav>
+<div style="position:relative;left:30px;top:30px;height:400px;">
+    <H5 style="font-weight:bold;">Subscribe here to get additional benefits!</H5>
+     <form action="{% url 'payment' user.username %}" method="post" id="subscription-form" style="position:relative;left:30px;top:20px;">
+         {% csrf_token %}
+        <label style="font-weight:bold;font-size:18px;">Subscription type :</label><br>
+        <select onchange=myfunction() id="type" name="type" style="font-size:20px;width:75%;height:35px;" required>
+           <option value="0"> --Select-- </option>
+           <option value="500"> Silver </option>
+           <option value="1000">Gold</option>
+            <option value="1500">Platinum</option>
+        </select><br>
+        <label style="font-weight:bold;font-size:18px;padding-top:10px;">Amount : </label><br>
+        <input id="amount" name="amount" readonly style="font-size:20px;width:75%" placeholder="Amount"  required></input>
+        <script>
+        function myfunction()
+        {
+           document.getElementById("amount").value = document.getElementById("type").value;
+        }
+        </script>
+        <br><br>
+        <button class="btn btn-primary btn-dark" type="submit" value="submit" style="position:relative;left:130px;;width:35%;height:40px;">Proceed to payment</button>
+    </form>
+    <br>
+    {% block message%}
+        {% if messages %}
+                {% for message in messages%}
+                    <p class="{{message.tags}}" style="color:red;position:relative;top:20px;left:30%;">{{message}}</p>
+                {% endfor %}
+        {% endif %}
+    {% endblock %}
+</div>
+{% endif %}
+{% endblock %}
